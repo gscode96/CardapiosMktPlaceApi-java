@@ -49,15 +49,16 @@ public class Categoria {
 		this.status = Status.A; // categoria sempre vai ser instanciada ativa
 
 	}
-	
-	@Transient //Para ignorar no mapeamento jpa
+
+	@Transient // Para ignorar no mapeamento jpa
 	public boolean isPersistido() {
 		return getId() != null && getId() > 0;
 
 	}
+
 	@Transient
 	public boolean isAtiva() {
 		return getStatus() == Status.A;
-		
+
 	}
 }
