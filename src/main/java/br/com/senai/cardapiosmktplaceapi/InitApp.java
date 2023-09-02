@@ -37,13 +37,7 @@ public class InitApp {
 	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
 		return args -> {
 
-			Categoria categoria = categoriasRepository.buscarPor(39);
-			List<Restaurante> restaurantes = restaurantesRepository
-					.listarPor("%rest%", categoria, PageRequest.of(0, 15)).getContent();
-
-			for (Restaurante r : restaurantes) {
-				System.out.println(r.getNome() + " - " + r.getCategoria().getNome());
-			}
+			System.out.println("Funcionou");
 		};
 
 	}
