@@ -31,7 +31,7 @@ public interface OpcoesRepository extends JpaRepository<Opcao, Integer> {
 	@Query(value = "SELECT o FROM Opcao o WHERE Upper(o.nome) = Upper(:nome)")
 	public Opcao buscarPor(String nome);
 	
-	@Query(value = "SELECT o FROM Opcao o WHERE o.id = :id")
+	@Query(value = "SELECT o FROM Opcao o JOIN FETCH o.categoria JOIN FETCH o.restaurante WHERE o.id = :id")
 	public Opcao buscarPor(Integer id);
 	
 	@Modifying
