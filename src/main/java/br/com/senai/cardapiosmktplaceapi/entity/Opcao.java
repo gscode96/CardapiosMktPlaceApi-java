@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Digits;
@@ -52,7 +53,7 @@ public class Opcao {
 	@Enumerated(value = EnumType.STRING)
 	@NotNull(message = "O indicador de promoção é obrigatório")
 	@Column(name = "promocao")
-	private Confirmacao confirmacao;
+	private Confirmacao promocao;
 	
 	@DecimalMin(value = "0.0", inclusive = false, message = "O percentual de desconto não pode ser inferior a 0.01%") // define a quantidade minima do valor informado
 	@DecimalMax(value = "100.0", inclusive = false, message = "O percentual de desconto não pode ser superior a 100.00%") // define a quantidade maxima do valor informado
@@ -69,4 +70,21 @@ public class Opcao {
 	@JoinColumn(name = "id_restaurante")
 	@NotNull(message = "O restaurante é obrigatório")
 	private Restaurante restaurante;
+	
+	public Opcao () {
+		this.status = Status.A;
+		
+	}
+	@Transient
+	public boolean isAtiva() {
+		return getStatus() == Status.A;
+		
+	}
+	
+	public boolean isEmPromocao() {
+		return getPromocao() == Confirmacao.S;
+		
+	}
+	
+	
 }
