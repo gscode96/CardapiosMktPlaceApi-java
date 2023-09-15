@@ -1,5 +1,7 @@
 package br.com.senai.cardapiosmktplaceapi.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import br.com.senai.cardapiosmktplaceapi.entity.enums.Status;
 import br.com.senai.cardapiosmktplaceapi.entity.enums.TipoDeCategoria;
 import jakarta.persistence.Column;
@@ -49,13 +51,14 @@ public class Categoria {
 		this.status = Status.A; // categoria sempre vai ser instanciada ativa
 
 	}
-
+	
+	@JsonIgnore
 	@Transient // Para ignorar no mapeamento jpa
 	public boolean isPersistido() {
 		return getId() != null && getId() > 0;
 
 	}
-
+	@JsonIgnore //para nao ser colocado no json da requisição
 	@Transient
 	public boolean isAtiva() {
 		return getStatus() == Status.A;
