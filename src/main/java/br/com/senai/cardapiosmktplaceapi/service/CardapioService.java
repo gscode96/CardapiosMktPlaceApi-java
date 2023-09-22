@@ -4,6 +4,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.validation.annotation.Validated;
 
+import br.com.senai.cardapiosmktplaceapi.dto.CardapioSalvo;
 import br.com.senai.cardapiosmktplaceapi.dto.NovoCardapio;
 import br.com.senai.cardapiosmktplaceapi.entity.Cardapio;
 import br.com.senai.cardapiosmktplaceapi.entity.Restaurante;
@@ -25,7 +26,7 @@ public interface CardapioService {
 	public Cardapio alterar(
 			@Valid
 			@NotNull(message = "O cardápio salvo é obrigatório!")
-			Cardapio cardapioSalvo);
+			CardapioSalvo cardapioSalvo);
 	
 	public Page<Cardapio> listarPor (
 			@NotNull(message = "O restaurante é obrigatório!")

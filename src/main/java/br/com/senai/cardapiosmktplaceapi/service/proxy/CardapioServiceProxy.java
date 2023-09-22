@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.com.senai.cardapiosmktplaceapi.dto.CardapioSalvo;
 import br.com.senai.cardapiosmktplaceapi.dto.NovoCardapio;
 import br.com.senai.cardapiosmktplaceapi.entity.Cardapio;
 import br.com.senai.cardapiosmktplaceapi.entity.Restaurante;
@@ -26,7 +27,7 @@ public class CardapioServiceProxy implements CardapioService {
 	}
 
 	@Override
-	public Cardapio alterar(Cardapio cardapioSalvo) {
+	public Cardapio alterar(CardapioSalvo cardapioSalvo) {
 
 		return service.alterar(cardapioSalvo);
 	}
