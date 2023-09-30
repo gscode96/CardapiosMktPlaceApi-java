@@ -52,7 +52,7 @@ public class ApiSecurityConfig {
 		authenticationProvider.setUserDetailsService(service);
 		authenticationProvider.setPasswordEncoder(passwordEncoder());
 
-		return authenticationProvider();
+		return authenticationProvider;
 	}
 
 	private UrlBasedCorsConfigurationSource urlBasedCorsConfigurationSource() {
