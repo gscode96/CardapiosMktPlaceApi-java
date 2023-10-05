@@ -23,7 +23,7 @@ public class ToEmail extends RouteBuilder {
 
 	@Override
 	public void configure() throws Exception {
-		from("direct:eviarEmail").doTry().setHeader(Exchange.HTTP_METHOD, HttpMethods.POST)
+		from("direct:enviarEmail").doTry().setHeader(Exchange.HTTP_METHOD, HttpMethods.POST)
 				.setHeader(Exchange.CONTENT_TYPE, simple("application/json;charset=UTF-8")).process(new Processor() {
 
 					@Override
